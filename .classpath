@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
-	<classpathentry kind="lib" path="C:/Users/Aditya/Desktop/Cornell/Class Materials/Computer Science/CS 2110/CS 2110 Workspace/A6/ShippingGame.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/C:/Users/Aditya/Desktop/Cornell/Class Materials/Computer Science/CS 2110/CS 2110 Workspace/A6/data/doc/"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+	<classpathentry exported="true" kind="lib" path="ShippingGame.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
