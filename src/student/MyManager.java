@@ -2,12 +2,11 @@ package student;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
+import game.Edge;
 import game.Node;
 import game.Parcel;
 import game.Truck;
 import game.Board;
-import game.Edge;
 import java.util.ArrayList;
 
 
@@ -32,17 +31,20 @@ public class MyManager extends game.Manager {
 		for (Truck truck: t){
 			truck.setUserData(new LinkedList<Parcel>());
 		}
+		
 		//allocate packages
 		for (Parcel parcel: b.getParcels()){
 			if (count >= t.size()){
 				count = 0;
 			}
 			((LinkedList<Parcel>)t.get(count).getUserData()).add(parcel);
-			count = count + 1;
+			count += 1;
 		}
+		
 		for (Truck truck: t){
 			System.out.println("Truck: "+truck+", Parcels:"+truck.getUserData());
 		}
+		
 		//move trucks to initial state
 		for (Truck truck: t){
 			LinkedList<Parcel> list = (LinkedList<Parcel>)truck.getUserData();
@@ -50,9 +52,9 @@ public class MyManager extends game.Manager {
 				Node node = list.get(0).getLocation();
 				LinkedList<Node> bestPath = Dijkstra(truck.getLocation(), node);				
 				if (bestPath.size() > 0){
-					System.out.println("Path: "+bestPath);
+					System.out.println("Path: " + bestPath);
 				}
-				System.out.println("Parcel location: "+node+", Dijkstra's destination: "+bestPath.get(bestPath.size() - 1));
+				System.out.println("Parcel location: " + node + ", Dijkstra's destination: "+ bestPath.get(bestPath.size() - 1));
 				if ((bestPath != null) && (bestPath.size() > 0)){
 					truck.setTravelPath(bestPath);
 				}
@@ -177,7 +179,8 @@ public class MyManager extends game.Manager {
 		return node;
 	}
 
-	private List<Node> dijkstra (Node start, Node end){
+	/*
+	private LinkedList<Node> dijkstra (Node start, Node end){
 		
 		//unvisited cities
 		GriesHeap<Node> unvisited = new GriesHeap<Node>();
@@ -239,7 +242,7 @@ public class MyManager extends game.Manager {
 		}
 		
 		
-		/**Get shortest path**/
+		/**Get shortest path
 		
 		LinkedList<Node> shortestPath = new LinkedList<Node>();
 		
@@ -254,4 +257,5 @@ public class MyManager extends game.Manager {
 		
 	}
 
+*/
 }
