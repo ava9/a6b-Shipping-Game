@@ -142,4 +142,12 @@ public class GriesHeap<T> implements MinHeap<T> {
     public boolean isEmpty() {
         return b.size() == 0;
     }
+    
+    public T peek(){
+    	return b.get(0);
+    }
+    
+    public boolean contains(T key){
+    	return itemMap.containsKey(key);
+    }
 }
