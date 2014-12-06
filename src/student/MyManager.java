@@ -50,6 +50,7 @@ public class MyManager extends game.Manager {
 		for (Truck truck: t){
 			
 			LinkedList<Parcel> list = (LinkedList<Parcel>)truck.getUserData();
+			
 			if (list != null){
 
 				Node node = list.get(0).getLocation();
@@ -98,6 +99,8 @@ public class MyManager extends game.Manager {
 					System.out.println("TRAVELING_TO_CHANGED");
 					break;
 				case WAITING:
+					
+							//We are done delivering parcels
 							if (((LinkedList<Parcel>)truck.getUserData()).size() == 0){
 								System.out.println("WAIT");
 								
@@ -113,6 +116,8 @@ public class MyManager extends game.Manager {
 									moveTruck(truck, node);
 								}
 							}
+							
+							//We still have parcels to deliver
 							else{
 								
 								//Truck is not carrying anything
@@ -139,13 +144,13 @@ public class MyManager extends game.Manager {
 										
 										//Initial parcel
 										if (truck.getLocation().equals(parcel.destination)){
-											((LinkedList<Parcel>)truck.getUserData()).remove(0);
+											((LinkedList<Parcel>)truck.getUserData()).poll();
 											truck.dropoffLoad();
 											
 											//Further parcels
 											if (((LinkedList<Parcel>)truck.getUserData()).size() != 0){
 												parcel = ((LinkedList<Parcel>)truck.getUserData()).get(0);
-												this.moveTruck(truck, parcel.getLocation());
+												moveTruck(truck, parcel.getLocation());
 											}
 										}
 									}
